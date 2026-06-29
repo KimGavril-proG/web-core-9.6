@@ -1,0 +1,20 @@
+@use "sass:color";
+
+// $primary
+$main-bg: #F8F8F8;
+$title-bg: #41F6D7;
+$links-bg: #FFFFFF;
+$links-text: #7E7E82;
+$read-more-trigger-text: #1B1C21;
+$read-more-container-bg: #F8F8F8;
+// $border-bottom-color: #D9FFF5;
+
+$border-bottom: 1px solid #D9FFF5;
+$border-group: 0.5px solid white;
+$border-li-transparent: 2px solid transparent;
+$border-li-hover: 2px solid #B8FFEC;
+
+$breakpoints: (
+    "tablet": 768px,
+    "desktop": 1120px
+);

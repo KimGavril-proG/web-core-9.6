@@ -1,0 +1,62 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
+.burger,
+.checkstatus,
+.repair,
+.repair-2,
+.checkstatus-2,
+.profile,
+.chat,
+.call {
+  @include button-styles;
+}
+
+.profile,
+.chat,
+.call {
+  display: none;
+
+  @include respond-to('tablet') {
+    display: inline-flex;
+  }
+
+  @include respond-to('desktop') {
+  }
+}
+
+.checkstatus {
+  @include respond-to('tablet') {
+    margin-right: 24px;
+  }
+}
+
+.burger {
+  @include respond-to('tablet') {
+    margin-left: 24px;
+  }
+}
+
+.pc-buttons {
+  display: none;
+
+  @include respond-to('desktop') {
+    display: inline-flex;
+        margin-right: 31px;
+        gap: 0 32px;
+  }
+}
+
+.burger,
+.group,
+.profile,
+.chat,
+.call,
+.divider-1,
+.divider-2,
+.repair,
+.checkstatus {
+  @include respond-to('desktop') {
+    display: none;
+  }
+}
