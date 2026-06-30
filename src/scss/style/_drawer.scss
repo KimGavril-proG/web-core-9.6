@@ -167,6 +167,10 @@
     background-color: $links-bg;
 }
 
+&-lang-list .is-active, &-link-1.is-active {
+    pointer-events: none; // Запрещаем кликать по уже активному языку, меню
+} 
+
 &-footer-buttons {
     display: flex;
     gap: 16px;
