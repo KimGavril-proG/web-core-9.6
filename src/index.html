@@ -10,19 +10,71 @@
     <title>CPS services</title>
   </head>
   <body>
+
+        <aside class='drawer'>
+        <header class='drawer-header'>
+            <div class="drawer-wrapper">
+                <div class="drawer-wrapper-left">
+                    <button type='button' class="drawer-burger"><img src="./img/burger-copy.svg" alt="drawer-burger-ic"></button>
+                    <div class="drawer-group"><img src="./img/Group.svg" alt="drawer-group-ic"></div>
+                </div>
+                <div class="drawer-wrapper-right">
+                    <button type='button' class="drawer-search"><img src="./img/search.svg" alt="drawer-search-ic"></button>
+                </div>
+            </div>
+        </header>
+            <!-- <main> -->
+        <section class='drawer-section'>
+            <nav class='drawer-nav-wrapper'>
+                <ul class='drawer-nav-links'>
+                    <li class="drawer-link-1 is-active"><a href="#">Ремонт техники</a></li>
+                    <li class="drawer-link-2"><a href="#">Услуги и сервисы</a></li>
+                    <li class="drawer-link-3"><a href="#">Корпоративным клиентам</a></li>
+                    <li class="drawer-link-4"><a href="#">Продавцам техники</a></li>
+                    <li class="drawer-link-5"><a href="#">Партнерам</a></li>
+                    <li class="drawer-link-6"><a href="#">Производителям</a></li>
+                    <li class="drawer-link-7"><a href="#">Наши сервисные центры</a></li>
+                    <li class="drawer-link-8"><a href="#">Наши сервисные центры</a></li>
+                </ul>
+            </nav>
+            <!-- </main> -->
+        </section>
+        <footer class='drawer-footer'>
+            <div class="drawer-footer-buttons">
+                <button type='button' class="drawer-chat-copy"><img src="./img/call.svg" alt="drawer-chat-copy-ic"></button>
+                <button type='button' class="drawer-chat"><img src="./img/chat.svg" alt="drawer-chat-ic"></button>
+                <button type='button' class="drawer-profile"><img src="./img/profile.svg" alt="drawer-profile-ic"></button>
+            </div>
+            <address class="drawer-address">
+                <a href="mailto:mail@cps.com" class="drawer-mail-link" title="Написать на почту">mail@cps.com</a>
+                <a href="tel:8 800 890 8900" class="drawer-call-link" title="Позвонить нам">8 800 890 8900</a>
+            </address>
+            <nav class="drawer-lang-switcher" aria-label='Смена языка / Language selection'>
+                <ul class="drawer-lang-list">
+                    <li><a href="/ru" hreflang='ru' aria-current='page' title='Текущий язык: Русский' class='is-active'>RU</a></li>
+                    <li><a href="/en" hreflang='en' title='Switch to English'>EN</a></li>
+                    <li><a href="/ch" hreflang='ch' title='Switch to Chinese'>CH</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </aside>
+
+    <!-- Добавляем этот блок для затемнения фона: -->
+<div class="drawer-overlay"></div>
+
     <header class='header'>
         <form class="wrapper-left-side" action='' method=''>
-            <button class="burger"><img src="./img/burger.svg" alt="ic-burger"></button>
+            <button type='button' class="burger"><img src="./img/burger.svg" alt="ic-burger"></button>
             <div class="divider-1"></div>
             <div class='group'><img src="./img/Group.svg" alt="CPS services"></div>
         </form>
         <form class="wrapper-right-side" action='' method=''>
-            <button class="call"><img src="./img/call.svg" alt="ic-call"></button>
-            <button class="chat"><img src="./img/chat.svg" alt="ic-chat"></button>
-            <button class="profile"><img src="./img/profile.svg" alt="ic-profile"></button>
+            <button type='button' class="call"><img src="./img/call.svg" alt="ic-call"></button>
+            <button type='button' class="chat"><img src="./img/chat.svg" alt="ic-chat"></button>
+            <button type='button' class="profile"><img src="./img/profile.svg" alt="ic-profile"></button>
             <div class="divider-2"></div>
-            <button class="repair"><img src="./img/repair.svg" alt="ic-repair"></button>
-            <button class="checkstatus"><img src="./img/checkstatus.svg" alt="ic-checkstatus"></button>
+            <button type='button' class="repair"><img src="./img/repair.svg" alt="ic-repair"></button>
+            <button type='button' class="checkstatus"><img src="./img/checkstatus.svg" alt="ic-checkstatus"></button>
         </form>
     </header>
     <main class='main'>
@@ -30,10 +82,10 @@
             <h2 class='title'>Услуги и сервисы</h2>
             <div class="pc-buttons">
                 <label for="">
-                    Оставить заявку<button class="repair-2"><img src="./img/repair.svg" alt="ic-repair"></button>
+                    Оставить заявку<button type='button' class="repair-2"><img src="./img/repair.svg" alt="ic-repair"></button>
                 </label>
                 <label for="">
-                    Статус ремонта<button class="checkstatus-2"><img src="./img/checkstatus.svg"
+                    Статус ремонта<button type='button' class="checkstatus-2"><img src="./img/checkstatus.svg"
                             alt="ic-checkstatus"></button>
                 </label>
             </div>
@@ -85,5 +137,7 @@
             </picture>
         </article>
     </main>
+
+
   </body>
 </html>

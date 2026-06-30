@@ -1,9 +1,10 @@
-@use './reset';
-@use './fonts';
-@use './variables';
-@use './mixins';
-@use './buttons';
-@use './swiper';
+@use './style/reset';
+@use './style/fonts';
+@use './style/variables';
+@use './style/mixins';
+@use './style/buttons';
+@use './style/swiper';
+@use './style/drawer';
 
 body {
   display: flex;
@@ -12,6 +13,7 @@ body {
   font-size: 16px;
 
   @include mixins.respond-to('desktop') {
+    flex-direction: row;
     background: variables.$main-bg;
   }
 }
@@ -29,9 +31,10 @@ body {
   }
 
   @include mixins.respond-to('desktop') {
-    background: transparent;
-    padding: 0;
-    height: 0;
+    display: none;
+    // background: transparent;
+    // padding: 0;
+    // height: 0;
   }
 }
 
@@ -42,8 +45,18 @@ body {
   padding: 0 16px;
 }
 
+// 1. ПРАВИЛЬНЫЙ РОДИТЕЛЬ (задает сетку для ПК)
 .main {
+  width: 100%;
   background-color: variables.$main-bg;
+
+  @include mixins.respond-to('desktop') {
+    width: calc(100% - 320px); // Вычитаем сайдбар ТОЛЬКО ТУТ!
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; // Растягиваем внутренности по горизонтали
+  }
 }
 
 .group {
@@ -384,10 +397,12 @@ body {
 
 .wrapper-title {
 @include mixins.respond-to('desktop') {
-  display: inline-flex;
+  display: flex; // inline-flex не нужен, используйте обычный flex
         align-items: baseline;
         justify-content: space-between;
         width: 100%;
+        // width: calc(100% - 320px); // Чтобы контент не вылезал за границы экрана из-за ширины 100%:
+        // flex-grow: 1; // Заставляет занять всё оставшееся место справа
 
         & label {
         display: inline-flex;
