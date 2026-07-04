@@ -1,0 +1,18 @@
+@use '../utils/mixins';
+@use '../utils/variables';
+
+// .burger,
+// .checkstatus,
+// .repair,
+// .repair-2,
+// .checkstatus-2,
+// .profile,
+// .chat,
+// .call {
+//   @include mixins.button-styles;
+// }
+
+.button {
+  @include mixins.button-styles;
+}
+

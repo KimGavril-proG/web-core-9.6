@@ -1,0 +1,77 @@
+@use '../utils/mixins';
+@use '../utils/variables';
+
+.header {
+  .profile,
+  .chat,
+  .call {
+    display: none;
+
+    @include mixins.respond-to('tablet') {
+      display: inline-flex;
+    }
+
+    @include mixins.respond-to('desktop') {
+      display: none;
+    }
+  }
+
+  // .checkstatus {
+  //   @include mixins.respond-to('tablet') {
+  //     margin-right: 24px;
+  //   }
+  //   @include mixins.respond-to('desktop') {
+  //     display: none;
+  //   }
+  // }
+
+  // .burger {
+  //   @include mixins.respond-to('tablet') {
+  //     // margin-left: 24px;
+  //   }
+  //   @include mixins.respond-to('desktop') {
+  //     display: none;
+  //   }
+  // }
+
+  // .burger,
+  // .group,
+  // .profile,
+  // .chat,
+  // .call,
+  // .divider-1,
+  // .divider-2,
+  // .repair,
+  // .checkstatus
+  // {
+  //   @include mixins.respond-to('desktop') {
+  //     display: none;
+  //   }
+  // }
+}
+
+.pc-buttons {
+  display: none;
+
+  @include mixins.respond-to('desktop') {
+    display: inline-flex;
+    margin-right: 31px;
+    gap: 0 32px;
+  }
+}
+
+.drawer-search {
+  padding: 24px;
+
+  @include mixins.respond-to('tablet') {
+    padding: 0;
+  }
+}
+
+.drawer-header {
+  .drawer-burger {
+    @include mixins.respond-to('desktop') {
+      display: none;
+    }
+  }
+}

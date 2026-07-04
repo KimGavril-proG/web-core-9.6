@@ -1,0 +1,52 @@
+@use '../utils/mixins';
+@use '../utils/variables';
+
+/* Сама точка (буллит) */
+.main-pagination {
+  //     /* Контейнер для точек (центрируем внизу слайдера) */
+  // .swiper-pagination {
+  position: relative;
+  top: 16px;
+  width: 100%;
+  max-width: 100vw;
+  @include mixins.flex-center;
+  // display: flex;
+  // justify-content: center;
+  gap: 12px;
+
+  @include mixins.respond-to('tablet') {
+    display: none !important;
+  }
+
+  // @include mixins.respond-to('desktop') {
+  //     display: none !important;
+  // }
+
+  // Стилизуем дефолтные буллеты Swiper внутри нашего компонента
+  .swiper-pagination-bullet {
+    display: flex;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%; /* Или border-radius: 20px; */
+    background-color: variables.$swiper-bullet-bg; /* Цвет неактивной точки */
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    /* Эффект при наведении на обычную (неактивную) точку */
+    &:hover {
+      opacity: 1; /* Делаем точку более заметной при наведении */
+    }
+
+    /* Активная точка */
+    &-active {
+      opacity: 1;
+      background: variables.$swiper-bullet-active; /* Цвет активной точки (наш цвет из шапки) Или любой наш цвет */
+    }
+
+    /* Эффект при наведении на уже активную точку (если нужно) */
+    &-active:hover {
+      cursor: default; /* Показываем, что кликать на активную уже не имеет смысла */
+    }
+  }
+}

@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CPS services</title>
-  </head>
-  <body>
+</head>
 
-        <aside class='drawer'>
+<body>
+
+    <aside class='drawer'>
         <header class='drawer-header'>
             <div class="drawer-wrapper">
                 <div class="drawer-wrapper-left">
-                    <button type='button' class="drawer-burger"><img src="./img/burger-copy.svg" alt="drawer-burger-ic"></button>
+                    <button type='button' class="button drawer-burger"><img src="./img/burger-copy.svg"
+                            alt="drawer-burger-ic"></button>
                     <div class="drawer-group"><img src="./img/Group.svg" alt="drawer-group-ic"></div>
                 </div>
                 <div class="drawer-wrapper-right">
-                    <button type='button' class="drawer-search"><img src="./img/search.svg" alt="drawer-search-ic"></button>
+                    <button type='button' class="button drawer-search"><img src="./img/search.svg"
+                            alt="drawer-search-ic"></button>
                 </div>
             </div>
         </header>
-            <!-- <main> -->
+        <!-- <main> -->
         <section class='drawer-section'>
             <nav class='drawer-nav-wrapper'>
                 <ul class='drawer-nav-links'>
@@ -41,9 +43,12 @@
         </section>
         <footer class='drawer-footer'>
             <div class="drawer-footer-buttons">
-                <button type='button' class="drawer-chat-copy"><img src="./img/call.svg" alt="drawer-chat-copy-ic"></button>
-                <button type='button' class="drawer-chat"><img src="./img/chat.svg" alt="drawer-chat-ic"></button>
-                <button type='button' class="drawer-profile"><img src="./img/profile.svg" alt="drawer-profile-ic"></button>
+                <button type='button' class="button drawer-chat-copy"><img src="./img/call.svg"
+                        alt="drawer-chat-copy-ic"></button>
+                <button type='button' class="button drawer-chat"><img src="./img/chat.svg"
+                        alt="drawer-chat-ic"></button>
+                <button type='button' class="button drawer-profile"><img src="./img/profile.svg"
+                        alt="drawer-profile-ic"></button>
             </div>
             <address class="drawer-address">
                 <a href="mailto:mail@cps.com" class="drawer-mail-link" title="Написать на почту">mail@cps.com</a>
@@ -51,7 +56,8 @@
             </address>
             <nav class="drawer-lang-switcher" aria-label='Смена языка / Language selection'>
                 <ul class="drawer-lang-list">
-                    <li><a href="/ru" hreflang='ru' aria-current='page' title='Текущий язык: Русский' class='is-active'>RU</a></li>
+                    <li><a href="/ru" hreflang='ru' aria-current='page' title='Текущий язык: Русский'
+                            class='is-active'>RU</a></li>
                     <li><a href="/en" hreflang='en' title='Switch to English'>EN</a></li>
                     <li><a href="/ch" hreflang='ch' title='Switch to Chinese'>CH</a></li>
                 </ul>
@@ -60,45 +66,48 @@
     </aside>
 
     <!-- Добавляем этот блок для затемнения фона: -->
-<div class="drawer-overlay"></div>
+    <div class="drawer-overlay"></div>
 
     <header class='header'>
         <form class="wrapper-left-side" action='' method=''>
-            <button type='button' class="burger"><img src="./img/burger.svg" alt="ic-burger"></button>
+            <button type='button' class="button burger"><img src="./img/burger.svg" alt="ic-burger"></button>
             <div class="divider-1"></div>
             <div class='group'><img src="./img/Group.svg" alt="CPS services"></div>
         </form>
         <form class="wrapper-right-side" action='' method=''>
-            <button type='button' class="call"><img src="./img/call.svg" alt="ic-call"></button>
-            <button type='button' class="chat"><img src="./img/chat.svg" alt="ic-chat"></button>
-            <button type='button' class="profile"><img src="./img/profile.svg" alt="ic-profile"></button>
+            <button type='button' class="button call"><img src="./img/call.svg" alt="ic-call"></button>
+            <button type='button' class="button chat"><img src="./img/chat.svg" alt="ic-chat"></button>
+            <button type='button' class="button profile"><img src="./img/profile.svg" alt="ic-profile"></button>
             <div class="divider-2"></div>
-            <button type='button' class="repair"><img src="./img/repair.svg" alt="ic-repair"></button>
-            <button type='button' class="checkstatus"><img src="./img/checkstatus.svg" alt="ic-checkstatus"></button>
+            <button type='button' class="button repair"><img src="./img/repair.svg" alt="ic-repair"></button>
+            <button type='button' class="button checkstatus"><img src="./img/checkstatus.svg"
+                    alt="ic-checkstatus"></button>
         </form>
     </header>
+
     <main class='main'>
         <form class="wrapper-title" action='' method=''>
             <h2 class='title'>Услуги и сервисы</h2>
             <div class="pc-buttons">
                 <label for="">
-                    Оставить заявку<button type='button' class="repair-2"><img src="./img/repair.svg" alt="ic-repair"></button>
+                    Оставить заявку<button type='button' class="button repair-2"><img src="./img/repair.svg"
+                            alt="ic-repair"></button>
                 </label>
                 <label for="">
-                    Статус ремонта<button type='button' class="checkstatus-2"><img src="./img/checkstatus.svg"
+                    Статус ремонта<button type='button' class="button checkstatus-2"><img src="./img/checkstatus.svg"
                             alt="ic-checkstatus"></button>
                 </label>
             </div>
         </form>
         <nav class='nav-wrapper'>
             <ul class='nav-links'>
-                <li class="button-1"><a href="#">Ремонтируемые бренды</a></li>
-                <li class='button-2-1'><a href="#">Дополнительные услуги</a></li>
-                <li class="button-2-2"><a href="#">Ремонтируемые устройства</a></li>
-                <li class="button-3"><a href="#">Цены на услуги</a></li>
-                <li class="button-4"><a href="#">Адреса сервисных центров</a></li>
-                <li class="button-5"><a href="#">Специальные цены</a></li>
-                <li class='button-6'><a href="#">Отзывы</a></li>
+                <li class="link-1"><a href="#">Ремонтируемые бренды</a></li>
+                <li class='link-2-1'><a href="#">Дополнительные услуги</a></li>
+                <li class="link-2-2"><a href="#">Ремонтируемые устройства</a></li>
+                <li class="link-3"><a href="#">Цены на услуги</a></li>
+                <li class="link-4"><a href="#">Адреса сервисных центров</a></li>
+                <li class="link-5"><a href="#">Специальные цены</a></li>
+                <li class='link-6'><a href="#">Отзывы</a></li>
             </ul>
         </nav>
         <article class='content'>
@@ -136,8 +145,80 @@
                 <img src="./img/stand-cps.png" alt="Information stand CPS">
             </picture>
         </article>
+    
+
+    <section class='brands' aria-labelledby='brands-title'>
+        <!-- Заменили header на лаконичный БЭМ-элемент заголовка -->
+        <div class='brands__header'>
+            <!-- h1 заменен на h2 (так как h1 — это название самого сайта/страницы) -->
+            <h2 id='brands-title' class='brands__title'>Ремонт техники различных брендов</h2>
+        </div>
+
+        <!-- Заменили тег main на обычный БЭМ-контейнер проекта -->
+        <div class='brands-container brands__container'>
+
+            <!-- Слайдер занимается ТОЛЬКО слайдами и пагинацией -->
+            <!-- Slider main container -->
+            <div class="swiper brands-swiper">
+
+                <!-- 1. Наше неподвижное облако (вынесено из wrapper) -->
+                <div class="swiper-shadow-overlay brands-swiper__shadow-overlay"></div>
+
+                <!-- Двигающаяся лента со слайдами -->
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper brands-swiper__wrapper">
+                    <!-- Slides -->
+                    <!-- 2. Двигающаяся лента со слайдами -->
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Lenovo.svg"
+                            alt="Lenovo"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Samsung.svg" alt="Samsung"><a
+                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Apple.svg" alt="Apple"><a
+                            class='circle-arrow' href="#"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/ViewSonic.svg"
+                            alt="ViewSonic"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Bosch.svg"
+                            alt="Bosch"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/HP.svg" alt="HP"><a
+                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Acer.svg" alt="Acer"><a
+                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Sony.svg" alt="Sony"><a
+                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Lenovo.svg"
+                            alt="Lenovo"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Samsung.svg" alt="Samsung"><a
+                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Apple.svg" alt="Apple"><a
+                            class='circle-arrow' href="#"></a></div>
+                </div>
+
+                <!-- Идеальный микс пагинации: системный класс + наш независимый компонент буллетов -->
+                <!-- If we need pagination -->
+                <div class="swiper-pagination main-pagination brands-swiper__pagination"></div>
+            </div>
+
+            <!-- КНОПКА ВЫНЕСЕНА ИЗ SWIPER. Теперь overflow:hidden слайдера её не отрежет! -->
+            <!-- Исправлен БЭМ-класс текста: show-more-btn__text -->
+            <button class="show-more-btn">
+                <!-- Заменили arrow-icon на БЭМ-элемент кнопки -->
+                <span class="show-more-btn__icon">
+                    <!-- <span class="arrow-icon"> -->
+                    <span class="arrow-1"></span>
+                    <span class="arrow-2"></span>
+                </span>
+                <span class="show-more-btn__text">Показать все</span>
+            </button>
+
+        </div>
+    </section>
+
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- <script defer src="./js/components/swiper.js"></script> -->
 
-  </body>
+
+</body>
+
 </html>

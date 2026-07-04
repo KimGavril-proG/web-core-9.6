@@ -1,0 +1,46 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.brands__header {
+    display: block;
+    /* gap: 16px; */
+    padding: 16px;
+    width: auto;
+    height: 80px;
+    border-top: variables.$border-bottom; /* solid - это линия */
+    background-image: variables.$header-liner-gradient; 
+
+    @include mixins.respond-to('tablet') {
+        height: 56px;
+    }
+
+    // @include mixins.respond-to('desktop') {
+    //     height: 56px;
+    // }
+}
+
+.brands__title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    color: variables.$links-text;
+}
+
+.go-logo {
+    @include mixins.flex-center;
+    width: 40px;
+    height: 40px;
+}
+
+.brands-container {
+    background-color: variables.$main-bg;
+    padding-top: 16px;
+    // height: 100vh; /* 👈 ВОТ ОНА — ОШИБКА */ 
+    height: auto; /* 👈 Исправлено: блок теперь обжимает контент (слайдер + кнопку) */
+    min-height: 100vh; // 👈 ГАРАНТИРУЕТ полную заливку экрана, но позволяет контенту расти вниз!
+    @include mixins.flex-column;
+    align-items: start;
+    // flex-grow: 1;
+}

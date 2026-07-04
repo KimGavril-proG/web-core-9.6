@@ -1,0 +1,142 @@
+// Вообще нужно придерживаться одной стратегии при импорте, либо named либо wild card (*)
+// Вариант при импорте "named"
+@use 'variables';
+// Вариант при импорте "wild card"
+// @use "variables" as *;
+@use 'sass:color';
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin button-styles {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 0.5px solid rgba(0, 0, 0, 0);
+}
+
+@mixin divider {
+  border-left: 2px solid #eaeaea;
+  height: 32px;
+  border-radius: 1px;
+}
+
+@mixin respond-to($breakpoint) {
+  $value: map-get(
+    $map: variables.$breakpoints,
+    $key: $breakpoint
+  );
+
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+// Миксин для подключения шрифтов (с поддержкой local)
+@mixin font-face(
+  $name,
+  $filename,
+  $weight: 400,
+  $style: normal,
+  $file-prefix: 'TTLakes'
+) {
+  @font-face {
+    font-family: '#{$name}';
+    src:
+      local('#{$name} #{$filename}'),
+      local('#{$file-prefix}-#{$filename}'),
+      url('../fonts/#{$file-prefix}-#{$filename}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@mixin double-arrow($color, $open-margin-top: 46px) {
+  /* Общий контейнер для иконки стрелок */
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  flex-shrink: 0;
+
+  /* Стили для первой и второй стрелки */
+  .arrow-1,
+  .arrow-2 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 6px;
+
+    /* Собираем усики стрелок из абсолютно круглых линий */
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 8px; /* Длина половинки стрелки */
+      height: 2px; /* Толщина линии */
+      background-color: $color; /* Наш бирюзовый цвет */
+      border-radius: 10px; /* 👈 Полное и идеальное скругление концов */
+      transition:
+        transform 0.3s ease,
+        top 0.3s ease;
+      top: 15px;
+    }
+
+    /* Левые половинки (смотрят вниз-вправо) */
+    &::before {
+      left: 5.75px;
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+
+    /* Правые половинки (смотрят вниз-влево и идеально стыкуются в центре) */
+    &::after {
+      right: 5.75px;
+      transform: rotate(-45deg);
+      transform-origin: center;
+    }
+  }
+
+  /* Сдвигаем вторую стрелку строго под первую */
+  .arrow-1 {
+    top: 0px;
+  }
+  .arrow-2 {
+    top: 6px;
+  } /* 👈 Вот этот сдвиг сделает их друг под другом */
+
+  // Интегрируем логику открытого состояния прямо внутрь иконки через контекстный селектор БЭМ
+  .show-more-btn.is-open & {
+    margin-top: $open-margin-top;
+
+    /* Левые половинки (аккуратный разворот вверх) */
+    .arrow-1::before,
+    .arrow-2::before {
+      transform: rotate(-45deg); /* Меняем угол на зеркальный */
+    }
+
+    /* Правые половинки (аккуратный разворот вверх) */
+    .arrow-1::after,
+    .arrow-2::after {
+      top: 15px;
+      transform: rotate(45deg); /* Меняем угол на зеркальный */
+    }
+  }
+}
