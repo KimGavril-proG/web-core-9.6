@@ -1,0 +1,134 @@
+@use '../utils/mixins';
+@use '../utils/variables';
+
+/* Главный контейнер должен быть родителем для абсолютного позиционирования */
+// .swiper
+.brands-swiper {
+  // Перевели на БЭМ-имя секции, чтобы не ломать чужие слайдеры
+  position: relative;
+  width: 100%;
+  // max-width: 100vw;
+  // min-width: 0;
+  height: 100%; /* Чтобы контейнер занял всё пространство и посему были видны все элементы, включая пагинацию */
+  background-color: variables.$main-bg;
+  // margin: 0px 8px 16px 16px;
+  padding: 0px 8px 16px 16px;
+  // padding-bottom: 24px; // 👈 Даем место снизу для пагинации, чтобы overflow её не обрезал
+  overflow: hidden;
+
+  //   &-wrapper
+  &__wrapper {
+    // Это наш swiper-wrapper
+    @include mixins.flex-space-between;
+    flex-wrap: nowrap; /* 👈 Запрещает перенос слайдов на новую строку */
+    position: relative;
+
+    @include mixins.respond-to('tablet') {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr); /* Сетка 3 столбца */
+      place-items: center; /* Центрирует контент внутри ячеек */
+
+      gap: 24px;
+      // margin: 24px 24px 0;
+      padding: 0 24px 0 24px;
+      transform: none !important; // Отключаем JS-трансформации Swiper
+    }
+
+    @include mixins.respond-to('desktop') {
+      // display: grid !important;
+      grid-template-columns: repeat(4, 1fr); /* Сетка 4 столбца */
+      place-items: center;
+      gap: 32px;
+      // margin: 24px 32px 0;
+      padding: 0 16px 0;
+      // transform: none !important;
+    }
+  }
+
+  //   &-slide
+  &__slide {
+    @include mixins.flex-space-between;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 16px;
+    width: 240px;
+    height: 72px;
+    background-color: variables.$links-bg;
+    border: variables.$border-swiper;
+    border-radius: 6px;
+
+    @include mixins.respond-to('tablet') {
+      width: 224px;
+
+      /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 7-Й (остается ровно 6 штук в 2 ряда) */
+      &:nth-child(n + 7) {
+        display: none !important;
+      }
+    }
+
+    @include mixins.respond-to('desktop') {
+      width: 240px; // На десктопе пусть тянется по грид-сетке
+
+      // На ПК прячем с 9-й карточки, но возвращаем 7-ю и 8-ю
+      /* ПОКАЗЫВАЕМ ИХ, ЕСЛИ НАЖАТА КНОПКА */
+      &:nth-child(n + 7) {
+        display: flex !important;
+      }
+
+      /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 9-Й (остается ровно 8 штук в 2 ряда) */
+      &:nth-child(n + 9) {
+        display: none !important;
+      }
+    }
+
+    // --- Исправленная логика показа по кнопке через JS-класс ---
+    // Если на родительский слайдер (.brands-slider) навешан класс .is-expanded
+    /* ПОКАЗЫВАЕМ ИХ, ЕСЛИ НАЖАТА КНОПКА */
+    //   .swiper-wrapper.is-expanded &:nth-child(n + 9)
+    .brands-swiper.is-expanded & {
+      @include mixins.respond-to('tablet') {
+        &:nth-child(n + 7) {
+          display: flex !important;
+        }
+        @include mixins.respond-to('desktop') {
+          &:nth-child(n + 9) {
+            display: flex !important;
+          }
+        }
+      }
+    }
+  }
+
+  // &__shadow-overlay {
+  //   display: inline-block;
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   width: 100%;
+  //   max-width: 100vw;
+  //   height: 80px; // Высота вашей ленты слайдов
+  //   z-index: 5; // Выше слайдов
+  //   pointer-events: none;
+
+  //   &-shadow-overlay::after
+  &__shadow-overlay::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    width: 24px;
+    height: 81px;
+    pointer-events: none; /* 👈 КРИТИЧЕСКИ ВАЖНО: клики будут проходить сквозь облако на слайды */
+    background-image: variables.$shadow-overlay-liner-gradient;
+    z-index: 1; /* Должно быть выше слайдов, но ниже пагинации */
+
+    @include mixins.respond-to('tablet') {
+      display: none;
+    }
+
+    // @include mixins.respond-to('desktop') {
+    //     display: none;
+    // }
+  }
+}
+// }

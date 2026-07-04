@@ -1,0 +1,14 @@
+@use '../utils/variables';
+@use '../utils/mixins';
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: variables.$font-main;
+  font-size: 16px;
+
+  @include mixins.respond-to('desktop') {
+    flex-direction: row;
+    background: variables.$main-bg;
+  }
+}
