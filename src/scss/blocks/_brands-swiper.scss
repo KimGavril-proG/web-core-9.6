@@ -6,7 +6,9 @@
 .brands-swiper {
   // Перевели на БЭМ-имя секции, чтобы не ломать чужие слайдеры
   position: relative;
-  width: 100%;
+  width: calc(100% - 8px) !important; // Супер функция, с помощью которой можно сделать отступ-рамку в свайперах
+  max-width: 100% !important; // В связке с calc
+  // width: 100%;
   // max-width: 100vw;
   // min-width: 0;
   height: 100%; /* Чтобы контейнер занял всё пространство и посему были видны все элементы, включая пагинацию */
@@ -55,7 +57,7 @@
     height: 72px;
     background-color: variables.$links-bg;
     border: variables.$border-swiper;
-    border-radius: 6px;
+    border-radius: variables.$border-radius;
 
     @include mixins.respond-to('tablet') {
       width: 224px;
@@ -112,15 +114,7 @@
 
   //   &-shadow-overlay::after
   &__shadow-overlay::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    right: 0px;
-    width: 24px;
-    height: 81px;
-    pointer-events: none; /* 👈 КРИТИЧЕСКИ ВАЖНО: клики будут проходить сквозь облако на слайды */
-    background-image: variables.$shadow-overlay-liner-gradient;
-    z-index: 1; /* Должно быть выше слайдов, но ниже пагинации */
+    @include mixins.shadow-overlay($height: 81px);
 
     @include mixins.respond-to('tablet') {
       display: none;

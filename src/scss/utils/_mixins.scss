@@ -31,6 +31,59 @@
   border: 0.5px solid rgba(0, 0, 0, 0);
 }
 
+@mixin button-order {
+  width: 119px;
+  height: 32px;
+  background-color: variables.$circle; // Розовый цвет с макета
+  color: variables.$links-bg;
+  border: none;
+  border-radius: 16px;
+  font-family: inherit; // 👈 КРИТИЧЕСКИ ВАЖНО: заставляет кнопку взять шрифт проекта, а не системный!
+  @include text-style-main($weight: 700, $size: 12px, $lh: 24px, $spacing: -0.15px); // Применяем наш миксин для текста кнопки
+  text-transform: uppercase; // Делаем текст капсом "ЗАКАЗАТЬ", как на макете
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+  .prices-swiper__btn-order {
+    & .circle-arrow {
+      left: 5px;
+      width: 32px;
+      height: 32px;
+      border: none;
+    }
+
+    & .circle-arrow::before,
+    & .circle-arrow::after {
+      width: 6px;
+      background-color: variables.$links-bg;
+    }
+
+    /* Верхняя половинка */
+    & .circle-arrow::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+      top: calc(50% - -1.5px); /* Смещаем верхний усик чуть выше */
+    }
+
+    /* Нижняя половинка */
+    & .circle-arrow::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+      top: calc(50% + -1.5px); /* Смещаем нижний усик чуть ниже */
+    }
+  }
+}
+
+@mixin shadow-overlay($height) {
+  content: '';
+    position: absolute;
+    // top: -4px;
+    right: 0px;
+    width: 24px;
+    height: $height;
+    pointer-events: none; /* 👈 КРИТИЧЕСКИ ВАЖНО: клики будут проходить сквозь облако на слайды */
+    background-image: variables.$shadow-overlay-liner-gradient;
+    z-index: 1; /* Должно быть выше слайдов, но ниже пагинации */
+}
+
 @mixin divider {
   border-left: 2px solid #eaeaea;
   height: 32px;
@@ -75,9 +128,11 @@
   $spacing: -0.2px
 ) {
   font-weight: $weight;
-  font-size: $size;
-  line-height: $lh;
-  letter-spacing: $spacing;
+
+  // Если передали просто число, умножаем на 1px, иначе оставляем как есть
+  font-size: if(unitless($size), $size * 1px, $size);
+  line-height: if(unitless($lh), $lh * 1px, $lh);
+  letter-spacing: if(unitless($spacing), $spacing * 1px, $spacing);
 }
 
 @mixin double-arrow($color, $open-margin-top: 46px) {

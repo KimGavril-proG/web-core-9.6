@@ -13,6 +13,7 @@ $show-more-btn: #1A1A1A;
 $circle: #FF3E79;
 // $border-bottom-color: #D9FFF5;
 
+$border-radius: 6px;
 $border-bottom: 1px solid #D9FFF5;
 $border-swiper: 1px solid #EAEAEA;
 $border-group: 0.5px solid white;
@@ -20,6 +21,8 @@ $border-li-transparent: 2px solid transparent;
 $border-li-hover: 2px solid #B8FFEC;
 $header-liner-gradient: linear-gradient(to right, #F8F8F8,#FFFFFF);
 $shadow-overlay-liner-gradient: linear-gradient(to right, transparent, #F8F8F8);
+
+$grid-template-columns: 3.5fr 1.5fr 1.5fr 1.5fr;
 
 $breakpoints: (
     "tablet": 768px,

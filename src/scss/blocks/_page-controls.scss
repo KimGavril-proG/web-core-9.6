@@ -75,3 +75,53 @@
     }
   }
 }
+
+.prices-swiper {
+  // --- РОЗОВАЯ КНОПКА ЗАКАЗА ---
+  &__btn-order {
+    @include mixins.flex-space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    // --- ВОТ ЭТИ ДВЕ СТРОКИ СДВИГАТ СТРЕЛКУ ВПРАВО ВНИЗ ---
+    // align-self: flex-end; // 👈 Уносит кнопку к правому краю карточки
+    // margin-top: auto; // 👈 Выталкивает кнопку в самый низ, прижимая к нижнему краю карточки
+    // margin-left: auto;
+    // justify-self: end; // Прижимает кнопку вправо и на мобилке, и на ПК
+    position: absolute !important;
+    right: 16px !important;
+    bottom: 16px !important;
+
+    @include mixins.respond-to('tablet') {
+      right: 0px !important;
+      // justify-self: end; // На ПК центрирует по сетке таблицы
+      // align-self: center; // На ПК выравнивает по центру строки
+      // margin-top: 0; // На ПК сбрасываем мобильный нижний прижим
+    }
+
+    & .circle-arrow {
+      left: 5px;
+      width: 32px;
+      height: 32px;
+      border: none;
+    }
+
+    & .circle-arrow::before,
+    & .circle-arrow::after {
+      width: 6px;
+      background-color: variables.$links-bg;
+    }
+
+    /* Верхняя половинка */
+    & .circle-arrow::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+      top: calc(50% - -1.5px); /* Смещаем верхний усик чуть выше */
+    }
+
+    /* Нижняя половинка */
+    & .circle-arrow::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+      top: calc(50% + -1.5px); /* Смещаем нижний усик чуть ниже */
+    }
+  }
+}

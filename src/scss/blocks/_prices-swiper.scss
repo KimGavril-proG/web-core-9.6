@@ -1,0 +1,296 @@
+@use '../utils/mixins';
+@use '../utils/variables';
+
+// Шапка таблицы (скрыта на мобилке, видна на планшете/ПК)
+.prices__table-header {
+  display: none;
+
+  @include mixins.respond-to('tablet') {
+    display: grid;
+    width: 100%;
+    // Сетка шапки должна СТРОГО совпадать с сеткой строки слайда:
+    grid-template-columns: variables.$grid-template-columns;
+    gap: 16px;
+    padding: 31px 24px 16px 32px;
+    // padding: 0 32px;
+    // margin-bottom: 12px;
+    // margin-bottom: 8px;
+  }
+}
+
+.prices__table-title {
+  font-size: 14px;
+  color: variables.$links-text;
+}
+
+// Главный контейнер слайдера цен
+.prices-swiper {
+  position: relative;
+  // width: 100%;
+  width: calc(100% - 8px) !important; // Супер функция, с помощью которой можно сделать отступ-рамку в свайперах
+  max-width: 100% !important; // В связке с calc
+  height: 100%;
+  background-color: variables.$main-bg;
+  padding: 0px 8px 40px 8px;
+  overflow: hidden;
+  margin-bottom: 32px;
+
+  @include mixins.respond-to('tablet') {
+    padding-bottom: 0;
+    width: 100% !important;
+  }
+
+  &__wrapper {
+    @include mixins.flex-space-between;
+    flex-wrap: nowrap;
+    position: relative;
+
+    @include mixins.respond-to('tablet') {
+      // Уничтожаем горизонтальный скролл Swiper и выстраиваем строки друг под другом
+      // display: flex !important;
+      flex-direction: column !important;
+      gap: 0; // Строки разделены границами border-bottom
+      transform: none !important;
+      // --- ФОРМИРУЕМ БЕЛЫЙ БЛОК ТАБЛИЦЫ ---
+      background-color: variables.$links-bg;
+      border-radius: variables.$border-radius;
+      // 👈 ВОТ ОНИ: внутренние отступы слева и справа создают эффект,
+      // что внутренние полосы не доходят до внешних краев таблицы!
+      padding: 0 24px;
+    }
+  }
+
+  // --- СТИЛИЗАЦИЯ СЛАЙДА (Карточка превращается в Строку) ---
+  &__slide {
+    // Внутренняя сетка карточки на мобилке
+    @include mixins.flex-column;
+    align-items: flex-start;
+    // justify-content: space-between;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    gap: 16px;
+
+    position: relative !important; // 👈 КРИТИЧЕСКИ ВАЖНО: точка отсчета для кнопки
+    flex-shrink: 0;
+    background-color: variables.$links-bg;
+    border-radius: variables.$border-radius;
+    // border: variables.$border-swiper;
+    padding: 16px;
+    width: 260px;
+    height: 200px;
+
+    @include mixins.respond-to('tablet') {
+      // Трансформация в горизонтальную строку таблицы из 4 колонок
+      display: grid;
+      grid-template-columns: variables.$grid-template-columns;
+      align-items: center;
+      // gap: 16px;
+
+      width: 100% !important;
+      height: 64px;
+      border: none;
+      border-bottom: variables.$border-swiper; // Линия разделения строк, как на макете
+      border-radius: 0;
+      // padding: 16px 24px !important; // ИСПРАВЛЕНО: перенесли боковые 24px сюда! Кнопка встанет идеально вровень с линией
+      padding: 0;
+      // padding: 16px 32px;
+    }
+
+    // У последней строки убираем полосу снизу
+    &:last-child {
+      @include mixins.respond-to('tablet') {
+        border-bottom: none !important;
+
+        // ИСПРАВЛЕНО: Добавляем внутренний отступ снизу ТОЛЬКО для последней строки,
+        // чтобы внизу белого блока появилось красивое свободное место!
+        // padding-bottom: 24px !important;
+      }
+    }
+  }
+
+  // Контейнер ячейки (БЭМ-элемент)
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    @include mixins.respond-to('tablet') {
+      flex-direction: row; // На ПК выстраиваем в ровную строку
+    }
+  }
+
+  // Серые мобильные подписи ("Цена", "Срок")
+  &__label {
+    @include mixins.text-style-main($size: 14px, $lh: 16px, $spacing: 0px);
+    color: variables.$links-text;
+
+    @include mixins.respond-to('tablet') {
+      display: none; // Скрываем их на десктопе, так как там есть общая шапка!
+    }
+  }
+
+  &__value {
+    @include mixins.text-style-main(
+      $weight: 400,
+      $size: 14px,
+      $lh: 18px,
+      $spacing: 0.2px
+    );
+    color: variables.$read-more-trigger-text;
+  }
+
+  &__shadow-overlay::after {
+    @include mixins.shadow-overlay($height: 200px);
+
+    @include mixins.respond-to('tablet') {
+      display: none;
+    }
+
+    // @include mixins.respond-to('desktop') {
+    //     display: none;
+    // }
+  }
+}
+
+// /* Главный контейнер должен быть родителем для абсолютного позиционирования */
+// // .swiper
+// .prices-swiper {
+//   // Перевели на БЭМ-имя секции, чтобы не ломать чужие слайдеры
+//   position: relative;
+//   width: 100%;
+//   // max-width: 100vw;
+//   // min-width: 0;
+//   height: 100%; /* Чтобы контейнер занял всё пространство и посему были видны все элементы, включая пагинацию */
+//   background-color: variables.$main-bg;
+//   // margin: 0px 8px 16px 16px;
+//   padding: 16px 8px 40px 8px;
+//   // padding-bottom: 24px; // 👈 Даем место снизу для пагинации, чтобы overflow её не обрезал
+//   overflow: hidden;
+
+//   //   &-wrapper
+//   &__wrapper {
+//     // Это наш swiper-wrapper
+//     @include mixins.flex-space-between;
+//     flex-wrap: nowrap; /* 👈 Запрещает перенос слайдов на новую строку */
+//     position: relative;
+
+//     @include mixins.respond-to('tablet') {
+//       display: grid !important;
+//       // grid-template-columns: repeat(3, 1fr); /* Сетка 3 столбца */
+//       place-items: center; /* Центрирует контент внутри ячеек */
+//       gap: 24px;
+//       // margin: 24px 24px 0;
+//       padding: 0 24px 0 24px;
+//       transform: none !important; // Отключаем JS-трансформации Swiper
+//     }
+
+//     @include mixins.respond-to('desktop') {
+//       // display: grid !important;
+//       // grid-template-columns: repeat(4, 1fr); /* Сетка 4 столбца */
+//       place-items: center;
+//       gap: 32px;
+//       // margin: 24px 32px 0;
+//       padding: 0 16px 0;
+//       // transform: none !important;
+//     }
+//   }
+
+//   //   &-slide
+//   &__slide {
+//     @include mixins.flex-space-between;
+//     flex-direction: column;
+//     flex-shrink: 0;
+//     align-items: flex-start;
+//     padding: 16px;
+//     width: 260px;
+//     height: 200px;
+//     @include mixins.text-style-main;
+//     // font-weight: 500;
+//     // font-size: 16px;
+//     // line-height: 24px;
+//     // letter-spacing: -0.2px;
+//     background-color: variables.$links-bg;
+//     border: variables.$border-swiper;
+//     border-radius: 6px;
+
+//     // @include mixins.respond-to('tablet') {
+//     //   width: 224px;
+
+//     // /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 4-Й (остается ровно 3 штук в 1 ряд) */
+//     // &:nth-child(n + 4) {
+//     //   display: none !important;
+//     // }
+//   }
+
+//   // @include mixins.respond-to('desktop') {
+//   //   width: 240px; // На десктопе пусть тянется по грид-сетке
+
+//   //   // На ПК прячем с 5-й карточки, но возвращаем 7-ю
+//   //   /* ПОКАЗЫВАЕМ ИХ, ЕСЛИ НАЖАТА КНОПКА */
+//   //   &:nth-child(n + 4) {
+//   //     display: flex !important;
+//   //   }
+
+//   // /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 5-Й (остается ровно 4 штук в 1 ряд) */
+//   // &:nth-child(n + 5) {
+//   //   display: none !important;
+//   // }
+// }
+
+// // // --- Исправленная логика показа по кнопке через JS-класс ---
+// // // Если на родительский слайдер (.tech-slider) навешан класс .is-expanded
+// // /* ПОКАЗЫВАЕМ ИХ, ЕСЛИ НАЖАТА КНОПКА */
+// // //   .swiper-wrapper.is-expanded &:nth-child(n + 9)
+// // .tech-swiper.is-expanded & {
+// //   @include mixins.respond-to('tablet') {
+// //     &:nth-child(n + 4) {
+// //       display: flex !important;
+// //     }
+// //     @include mixins.respond-to('desktop') {
+// //       &:nth-child(n + 5) {
+// //         display: flex !important;
+// //       }
+// //     }
+// //   }
+// // }
+
+// // // Круглая стрелка (сдвигаем её в правый нижний угол)
+// // .circle-arrow {
+// //   align-self: flex-end; // 👈 КРИТИЧЕСКИ ВАЖНО: принудительно уносит ОДИН этот элемент вправо!
+// //   margin-top: auto; // Гарантирует выталкивание стрелки вниз, если контента мало
+// // }
+// // }
+
+// // &__shadow-overlay {
+// //   display: inline-block;
+// //   position: absolute;
+// //   top: 0;
+// //   right: 0;
+// //   width: 100%;
+// //   max-width: 100vw;
+// //   height: 80px; // Высота вашей ленты слайдов
+// //   z-index: 5; // Выше слайдов
+// //   pointer-events: none;
+
+// //   &-shadow-overlay::after
+// &__shadow-overlay::after {
+//   content: '';
+//   position: absolute;
+//   top: -4px;
+//   right: 0px;
+//   width: 24px;
+//   height: 200px;
+//   pointer-events: none; /* 👈 КРИТИЧЕСКИ ВАЖНО: клики будут проходить сквозь облако на слайды */
+//   background-image: variables.$shadow-overlay-liner-gradient;
+//   z-index: 1; /* Должно быть выше слайдов, но ниже пагинации */
+
+//   @include mixins.respond-to('tablet') {
+//     display: none;
+//   }
+
+//   // @include mixins.respond-to('desktop') {
+//   //     display: none;
+//   // }
+// }
+// // }
+// // }

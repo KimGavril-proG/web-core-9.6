@@ -163,18 +163,18 @@
     // align-items: center;
     // justify-content: center;
     border: variables.$border-li-transparent;
-    border-radius: 6px;
+    border-radius: variables.$border-radius;
     transition: all 0.2s ease;
 
     &:hover {
       background-color: variables.$links-bg;
       border: variables.$border-li-hover;
-      border-radius: 6px;
+      border-radius: variables.$border-radius;
     }
   }
 
   & a {
-    color: #7e7e82;
+    color: variables.$links-text;
     text-decoration: none;
     padding: 8px 15px;
   }

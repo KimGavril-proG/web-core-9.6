@@ -16,3 +16,13 @@
   @include mixins.button-styles;
 }
 
+.prices-swiper {
+  // --- РОЗОВАЯ КНОПКА ЗАКАЗА ---
+  &__btn-order {
+    @include mixins.button-order;
+
+    &:hover {
+      background-color: darken($color: variables.$circle, $amount: 10%);
+    }
+  }
+}

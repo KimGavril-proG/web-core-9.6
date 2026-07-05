@@ -24,7 +24,7 @@
     width: 9.6px; /* Длина половинки стрелки */
     height: 2px; /* Толщина линии */
     background-color: variables.$circle;
-    border-radius: 2px; /* 👈 Скругляет края линий */
+    border-radius: 2px 0 0 2px; /* 👈 Скругляет края линий */
     top: 58%;  /* Сдвиг к центру круга */
     left: 52%; /* Сдвиг к центру круга */
 }
@@ -32,11 +32,11 @@
 /* Верхняя половинка */
 .circle-arrow::before {
     transform: translate(-50%, -50%) rotate(-45deg);
-    top: calc(50% - -2.6px); /* Смещаем верхний усик чуть выше */
+    top: calc(50% - -2.8px); /* Смещаем верхний усик чуть выше */
 }
 
 /* Нижняя половинка */
 .circle-arrow::after {
     transform: translate(-50%, -50%) rotate(45deg);
-    top: calc(50% + -2.6px); /* Смещаем нижний усик чуть ниже */
+    top: calc(50% + -2.8px); /* Смещаем нижний усик чуть ниже */
 }
