@@ -145,73 +145,147 @@
                 <img src="./img/stand-cps.png" alt="Information stand CPS">
             </picture>
         </article>
-    
 
-    <section class='brands' aria-labelledby='brands-title'>
-        <!-- Заменили header на лаконичный БЭМ-элемент заголовка -->
-        <div class='brands__header'>
-            <!-- h1 заменен на h2 (так как h1 — это название самого сайта/страницы) -->
-            <h2 id='brands-title' class='brands__title'>Ремонт техники различных брендов</h2>
-        </div>
 
-        <!-- Заменили тег main на обычный БЭМ-контейнер проекта -->
-        <div class='brands-container brands__container'>
-
-            <!-- Слайдер занимается ТОЛЬКО слайдами и пагинацией -->
-            <!-- Slider main container -->
-            <div class="swiper brands-swiper">
-
-                <!-- 1. Наше неподвижное облако (вынесено из wrapper) -->
-                <div class="swiper-shadow-overlay brands-swiper__shadow-overlay"></div>
-
-                <!-- Двигающаяся лента со слайдами -->
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper brands-swiper__wrapper">
-                    <!-- Slides -->
-                    <!-- 2. Двигающаяся лента со слайдами -->
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Lenovo.svg"
-                            alt="Lenovo"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Samsung.svg" alt="Samsung"><a
-                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Apple.svg" alt="Apple"><a
-                            class='circle-arrow' href="#"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/ViewSonic.svg"
-                            alt="ViewSonic"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Bosch.svg"
-                            alt="Bosch"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/HP.svg" alt="HP"><a
-                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Acer.svg" alt="Acer"><a
-                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Sony.svg" alt="Sony"><a
-                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Lenovo.svg"
-                            alt="Lenovo"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Samsung.svg" alt="Samsung"><a
-                            href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
-                    <div class="swiper-slide brands-swiper__slide"><img src="./img/Apple.svg" alt="Apple"><a
-                            class='circle-arrow' href="#"></a></div>
-                </div>
-
-                <!-- Идеальный микс пагинации: системный класс + наш независимый компонент буллетов -->
-                <!-- If we need pagination -->
-                <div class="swiper-pagination main-pagination brands-swiper__pagination"></div>
+        <section class='brands' aria-labelledby='brands-title'>
+            <!-- Заменили header на лаконичный БЭМ-элемент заголовка -->
+            <div class='brands__header'>
+                <!-- h1 заменен на h2 (так как h1 — это название самого сайта/страницы) -->
+                <h2 id='brands-title' class='brands__title'>Ремонт техники различных брендов</h2>
             </div>
 
-            <!-- КНОПКА ВЫНЕСЕНА ИЗ SWIPER. Теперь overflow:hidden слайдера её не отрежет! -->
-            <!-- Исправлен БЭМ-класс текста: show-more-btn__text -->
-            <button class="show-more-btn">
-                <!-- Заменили arrow-icon на БЭМ-элемент кнопки -->
-                <span class="show-more-btn__icon">
-                    <!-- <span class="arrow-icon"> -->
-                    <span class="arrow-1"></span>
-                    <span class="arrow-2"></span>
-                </span>
-                <span class="show-more-btn__text">Показать все</span>
-            </button>
+            <!-- Заменили тег main на обычный БЭМ-контейнер проекта -->
+            <div class='brands-container brands__container'>
 
-        </div>
-    </section>
+                <!-- Слайдер занимается ТОЛЬКО слайдами и пагинацией -->
+                <!-- Slider main container -->
+                <div class="swiper brands-swiper">
+
+                    <!-- 1. Наше неподвижное облако (вынесено из wrapper) -->
+                    <div class="swiper-shadow-overlay brands-swiper__shadow-overlay"></div>
+
+                    <!-- Двигающаяся лента со слайдами -->
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper brands-swiper__wrapper">
+                        <!-- Slides -->
+                        <!-- 2. Двигающаяся лента со слайдами -->
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Lenovo.svg"
+                                alt="Lenovo"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img src="./img/Samsung.svg" alt="Samsung"><a
+                                href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img src="./img/Apple.svg" alt="Apple"><a
+                                class='circle-arrow' href="#"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/ViewSonic.svg"
+                                alt="ViewSonic"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Bosch.svg"
+                                alt="Bosch"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/HP.svg" alt="HP"><a
+                                href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Acer.svg"
+                                alt="Acer"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Sony.svg"
+                                alt="Sony"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img class='logo' src="./img/Lenovo.svg"
+                                alt="Lenovo"><a href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img src="./img/Samsung.svg" alt="Samsung"><a
+                                href="#"><img class='go-logo' src="./img/go.svg" alt="Go"></a></div>
+                        <div class="swiper-slide brands-swiper__slide"><img src="./img/Apple.svg" alt="Apple"><a
+                                class='circle-arrow' href="#"></a></div>
+                    </div>
+
+                    <!-- Идеальный микс пагинации: системный класс + наш независимый компонент буллетов -->
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination main-pagination brands-swiper__pagination"></div>
+                </div>
+
+                <!-- КНОПКА ВЫНЕСЕНА ИЗ SWIPER. Теперь overflow:hidden слайдера её не отрежет! -->
+                <!-- Исправлен БЭМ-класс текста: show-more-btn__text -->
+                <button class="show-more-btn">
+                    <!-- Заменили arrow-icon на БЭМ-элемент кнопки -->
+                    <span class="show-more-btn__icon">
+                        <!-- <span class="arrow-icon"> -->
+                        <span class="arrow-1"></span>
+                        <span class="arrow-2"></span>
+                    </span>
+                    <span class="show-more-btn__text">Показать все</span>
+                </button>
+
+            </div>
+        </section>
+
+        <setion class="tech" aria-labelledby="tech-title">
+            <div class="tech__header">
+                <h2 id="tech-title" class="tech__title">Ремонт различных видов техники</h2>
+            </div>
+
+            <div class="tech__container tech-container">
+                <!-- Слайдер видов техники -->
+                <div class="swiper tech-swiper">
+                    <!-- Шторка затемнения справа -->
+                    <div class="tech-swiper__shadow-overlay"></div>
+
+                    <!-- Лента со слайдами -->
+                    <div class="swiper-wrapper tech-swiper__wrapper">
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт ноутбуков </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт планшетов </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт ПК </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт мониторов </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт мобильных телефонов </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт клавиатуры </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт мыши </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт модемов </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт Wi-Fi </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт зарядных устроиств </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                        <div class="swiper-slide tech-swiper__slide">
+                            <span class="tech-swiper__text">Ремонт блока питания </span>
+                            <a class="circle-arrow" href="#"></a>
+                        </div>
+                    </div>
+
+                    <!-- Наш общий компонент точек, который мы вынесли! -->
+                    <div class="swiper-pagination main-pagination"></div>
+                </div>
+
+                <!-- Кнопка развертывания сетки техник -->
+                <button class="show-more-btn tech-show-more">
+                    <span class="show-more-btn__icon">
+                        <span class="arrow-1"></span>
+                        <span class="arrow-2"></span>
+                    </span>
+                    <span class="show-more-btn__text">Показать все</span>
+                </button>
+            </div>
+        </setion>
 
     </main>
 

@@ -11,7 +11,7 @@
     align-items: baseline;
     //   align-items: center;
     gap: 12px; /* Отступ между иконкой и текстом */
-    margin: 0 0 0 24px;
+    margin: 0 0 32px 24px;
     background: transparent;
     border: none;
     padding: 0;
@@ -26,7 +26,7 @@
 
   @include mixins.respond-to('desktop') {
     //  display: block; /* Показываем кнопку на ПК */
-    margin: 0 0 0 31px;
+    margin: 0 0 50px 31px;
   }
 
   // Стили для текста кнопки при открытии

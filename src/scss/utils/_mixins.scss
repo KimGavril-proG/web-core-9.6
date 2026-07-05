@@ -68,6 +68,18 @@
   }
 }
 
+@mixin text-style-main(
+  $weight: 500,
+  $size: 16px,
+  $lh: 24px,
+  $spacing: -0.2px
+) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lh;
+  letter-spacing: $spacing;
+}
+
 @mixin double-arrow($color, $open-margin-top: 46px) {
   /* Общий контейнер для иконки стрелок */
   position: relative;

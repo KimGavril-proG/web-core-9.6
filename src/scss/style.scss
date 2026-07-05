@@ -8,8 +8,10 @@
 @use 'blocks/page-content';
 @use 'blocks/page-controls';
 @use 'blocks/drawer';
+@use 'blocks/brands-header';
 @use 'blocks/brands-swiper';
-@use 'blocks/swiper-header';
+@use 'blocks/tech-header';
+@use 'blocks/tech-swiper';
 
 @use 'components/buttons';
 @use "components/circle-arrow";

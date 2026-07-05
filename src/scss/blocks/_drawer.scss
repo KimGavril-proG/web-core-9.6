@@ -26,10 +26,11 @@
     overflow-x: hidden;
 
     font-family: variables.$font-main;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.2px;
+    @include mixins.text-style-main;
+    // font-weight: 500;
+    // font-size: 16px;
+    // line-height: 24px;
+    // letter-spacing: -0.2px;
 
     // Плавный выезд слева наружу
     transform: translateX(-100%);
@@ -186,10 +187,11 @@
 }
 
 &-call-link {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.6px;
+    @include mixins.text-style-main($weight: 700, $size: 24px, $lh: 32px, $spacing: -0.6px);
+    // font-weight: 700;
+    // font-size: 24px;
+    // line-height: 32px;
+    // letter-spacing: -0.6px;
 }
 
 &-lang-list {

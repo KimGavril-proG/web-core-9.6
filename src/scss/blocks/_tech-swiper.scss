@@ -3,7 +3,7 @@
 
 /* Главный контейнер должен быть родителем для абсолютного позиционирования */
 // .swiper
-.brands-swiper {
+.tech-swiper {
   // Перевели на БЭМ-имя секции, чтобы не ломать чужие слайдеры
   position: relative;
   width: 100%;
@@ -27,7 +27,6 @@
       display: grid !important;
       grid-template-columns: repeat(3, 1fr); /* Сетка 3 столбца */
       place-items: center; /* Центрирует контент внутри ячеек */
-
       gap: 24px;
       // margin: 24px 24px 0;
       padding: 0 24px 0 24px;
@@ -48,11 +47,17 @@
   //   &-slide
   &__slide {
     @include mixins.flex-space-between;
+    flex-direction: column;
     flex-shrink: 0;
-    align-items: center;
+    align-items: flex-start;
     padding: 16px;
     width: 240px;
-    height: 72px;
+    height: 160px;
+    @include mixins.text-style-main;
+    // font-weight: 500;
+    // font-size: 16px;
+    // line-height: 24px;
+    // letter-spacing: -0.2px;
     background-color: variables.$links-bg;
     border: variables.$border-swiper;
     border-radius: 6px;
@@ -60,8 +65,8 @@
     @include mixins.respond-to('tablet') {
       width: 224px;
 
-      /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 7-Й (остается ровно 6 штук в 2 ряда) */
-      &:nth-child(n + 7) {
+      /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 4-Й (остается ровно 3 штук в 1 ряд) */
+      &:nth-child(n + 4) {
         display: none !important;
       }
     }
@@ -69,33 +74,39 @@
     @include mixins.respond-to('desktop') {
       width: 240px; // На десктопе пусть тянется по грид-сетке
 
-      // На ПК прячем с 9-й карточки, но возвращаем 7-ю и 8-ю
+      // На ПК прячем с 5-й карточки, но возвращаем 7-ю
       /* ПОКАЗЫВАЕМ ИХ, ЕСЛИ НАЖАТА КНОПКА */
-      &:nth-child(n + 7) {
+      &:nth-child(n + 4) {
         display: flex !important;
       }
 
-      /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 9-Й (остается ровно 8 штук в 2 ряда) */
-      &:nth-child(n + 9) {
+      /* 👈 ПРЯЧЕМ ВСЕ КАРТОЧКИ, НАЧИНАЯ С 5-Й (остается ровно 4 штук в 21 ряд) */
+      &:nth-child(n + 5) {
         display: none !important;
       }
     }
 
     // --- Исправленная логика показа по кнопке через JS-класс ---
-    // Если на родительский слайдер (.brands-slider) навешан класс .is-expanded
+    // Если на родительский слайдер (.tech-slider) навешан класс .is-expanded
     /* ПОКАЗЫВАЕМ ИХ, ЕСЛИ НАЖАТА КНОПКА */
     //   .swiper-wrapper.is-expanded &:nth-child(n + 9)
-    .brands-swiper.is-expanded & {
+    .tech-swiper.is-expanded & {
       @include mixins.respond-to('tablet') {
-        &:nth-child(n + 7) {
+        &:nth-child(n + 4) {
           display: flex !important;
         }
         @include mixins.respond-to('desktop') {
-          &:nth-child(n + 9) {
+          &:nth-child(n + 5) {
             display: flex !important;
           }
         }
       }
+    }
+
+    // Круглая стрелка (сдвигаем её в правый нижний угол)
+    .circle-arrow {
+      align-self: flex-end; // 👈 КРИТИЧЕСКИ ВАЖНО: принудительно уносит ОДИН этот элемент вправо!
+      margin-top: auto; // Гарантирует выталкивание стрелки вниз, если контента мало
     }
   }
 
@@ -117,7 +128,7 @@
     top: -4px;
     right: 0px;
     width: 24px;
-    height: 81px;
+    height: 166px;
     pointer-events: none; /* 👈 КРИТИЧЕСКИ ВАЖНО: клики будут проходить сквозь облако на слайды */
     background-image: variables.$shadow-overlay-liner-gradient;
     z-index: 1; /* Должно быть выше слайдов, но ниже пагинации */
