@@ -1,0 +1,140 @@
+@use '../utils/mixins';
+@use '../utils/variables';
+
+// 1. СТИЛИ БЛОКА ДОП. ИНФОРМАЦИИ (Лежит под таблицей в main)
+.prices-info {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  // gap: 12px;
+
+  @include mixins.respond-to('tablet') {
+    margin: 24px;
+  }
+
+  @include mixins.respond-to('desktop') {
+    margin: 32px;
+  }
+
+  &__text {
+    @include mixins.text-style-main(
+      $weight: 400,
+      $size: 14px,
+      $lh: 20px,
+      $spacing: 0.2px
+    );
+    color: variables.$read-more-trigger-text;
+    max-width: 421px; // Ограничиваем ширину текста, чтобы он аккуратно переносился
+  }
+
+  &__commercial {
+    // display: inline-flex;
+    // align-items: center;
+    max-width: 316px;
+    height: auto;
+    margin: 24px 0;
+
+    &--link {
+      // max-width: 292px;
+      // height: 24px;
+      display: inline-block;
+      // @include mixins.flex-center;
+      // justify-content: flex-start;
+      @include mixins.text-style-main;
+      color: variables.$read-more-trigger-text;
+      // gap: 8px;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: lighten($color: variables.$read-more-trigger-text, $amount: 30%);
+      }
+
+      &.circle-arrow {
+        // flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// 2. СТИЛИ ГЛОБАЛЬНОГО ФУТЕРА (Подвал сайта)
+.footer {
+  border-top: variables.$border-bottom; /* solid - это линия */
+  background-color: variables.$main-bg;
+
+  padding: 16px;
+
+  @include mixins.respond-to('tablet') {
+    padding: 32px 24px;
+  }
+
+  @include mixins.respond-to('desktop') {
+    margin-left: 320px;
+    width: calc(100% - 320px) !important; // Супер функция, с помощью которой можно сделать отступ-рамку в свайперах
+  max-width: 100% !important; // В связке с calc
+    padding: 32px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 16px;
+    // width: 100%;
+
+    @include mixins.respond-to('tablet') {
+      // На планшете и ПК разваливаем на 3 ровные колонки
+      grid-template-columns: repeat(3, 1fr);
+      align-items: flex-start;
+      gap: 32px;
+    //   padding: 32px 24px;
+    }
+
+    @include mixins.respond-to('desktop') {
+    //   padding: 32px;
+    }
+  }
+
+  &__block {
+    @include mixins.text-style-main($size: 14px, $lh: 16px, $spacing: 0);
+    color: variables.$links-text; // Серый цвет текста в футере
+
+    // Задаем зазор строго между абзацами внутри этой колонки
+    p:not(:last-child) {
+      margin-bottom: 1px; // 👈 Вернет аккуратный макетный отступ между строками /* Гарантированный воздух между блоками текста */
+    }
+
+    // p {
+    //   margin: 0;
+    // }
+
+    // Выравнивание текста в колонках для ПК
+    &--copyright {
+      @include mixins.respond-to('tablet') {
+        text-align: left;
+      }
+    }
+
+    &--policy {
+      @include mixins.respond-to('tablet') {
+        text-align: center; // Политику центрируем
+      }
+    }
+
+    &--disclaimer {
+      @include mixins.respond-to('tablet') {
+        text-align: right; // Дисклеймер прижимаем к правому краю, как на скриншоте
+      }
+    }
+  }
+
+  &__link {
+    color: variables.$links-text;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: darken($color: variables.$links-text, $amount: 50%);
+    }
+  }
+}

@@ -9,6 +9,7 @@ body {
 
   @include mixins.respond-to('desktop') {
     flex-direction: row;
+    flex-wrap: wrap;
     background: variables.$main-bg;
   }
 }

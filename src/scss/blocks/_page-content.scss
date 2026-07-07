@@ -34,6 +34,7 @@
   background-color: variables.$main-bg;
 
   @include mixins.respond-to('desktop') {
+    margin-left: 320px !important;
     width: calc(100% - 320px); // Вычитаем сайдбар ТОЛЬКО ТУТ!
     flex-grow: 1;
     display: flex;

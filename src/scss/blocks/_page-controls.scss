@@ -99,29 +99,29 @@
       // margin-top: 0; // На ПК сбрасываем мобильный нижний прижим
     }
 
-    & .circle-arrow {
-      left: 5px;
-      width: 32px;
-      height: 32px;
-      border: none;
-    }
+    // & .circle-arrow {
+    //   left: 5px;
+    //   width: 32px;
+    //   height: 32px;
+    //   border: none;
+    // }
 
-    & .circle-arrow::before,
-    & .circle-arrow::after {
-      width: 6px;
-      background-color: variables.$links-bg;
-    }
+    // & .circle-arrow::before,
+    // & .circle-arrow::after {
+    //   width: 6px;
+    //   background-color: variables.$links-bg;
+    // }
 
-    /* Верхняя половинка */
-    & .circle-arrow::before {
-      transform: translate(-50%, -50%) rotate(-45deg);
-      top: calc(50% - -1.5px); /* Смещаем верхний усик чуть выше */
-    }
+    // /* Верхняя половинка */
+    // & .circle-arrow::before {
+    //   transform: translate(-50%, -50%) rotate(-45deg);
+    //   top: calc(50% - -1.5px); /* Смещаем верхний усик чуть выше */
+    // }
 
-    /* Нижняя половинка */
-    & .circle-arrow::after {
-      transform: translate(-50%, -50%) rotate(45deg);
-      top: calc(50% + -1.5px); /* Смещаем нижний усик чуть ниже */
-    }
+    // /* Нижняя половинка */
+    // & .circle-arrow::after {
+    //   transform: translate(-50%, -50%) rotate(45deg);
+    //   top: calc(50% + -1.5px); /* Смещаем нижний усик чуть ниже */
+    // }
   }
 }

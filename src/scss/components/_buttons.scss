@@ -19,10 +19,51 @@
 .prices-swiper {
   // --- РОЗОВАЯ КНОПКА ЗАКАЗА ---
   &__btn-order {
-    @include mixins.button-order;
-
+    width: 119px;
+    height: 32px;
+    background-color: variables.$circle; // Розовый цвет с макета
+    color: variables.$links-bg;
+    text-transform: uppercase; // Делаем текст капсом "ЗАКАЗАТЬ", как на макете
+    // 1. Одиночные свойства — на самый верх!
+    @include mixins.text-style-main(
+      $weight: 700,
+      $size: 12px,
+      $lh: 24px,
+      $spacing: -0.15px
+    ); // Применяем наш миксин для текста кнопки
+    @include mixins.button-base;
+    
     &:hover {
       background-color: darken($color: variables.$circle, $amount: 10%);
     }
+
+    & .circle-arrow {
+      left: 5px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      @include mixins.draw-circle-arrow($arrow-color: variables.$links-bg);
+    }
   }
+}
+
+.prices-info {
+  &__commercial {
+  // -- РОЗОВАЯ СТРЕЛКА КОММЕРЧЕСКОГО ПРЕДЛОЖЕНИЯ --
+  & .circle-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    border: none;
+    // flex-shrink: 0;
+    // align-items: flex-start;
+    @include mixins.draw-circle-arrow;
+
+  //   .circle-arrow::before,
+  // .circle-arrow::after {
+  //   width: 3px;
+  // }
+  }
+ }
 }

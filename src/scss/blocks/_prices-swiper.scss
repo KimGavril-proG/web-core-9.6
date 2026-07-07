@@ -31,14 +31,19 @@
   max-width: 100% !important; // В связке с calc
   height: 100%;
   background-color: variables.$main-bg;
-  padding: 0px 8px 40px 8px;
+  padding: 0px 8px 16px 8px;
   overflow: hidden;
-  margin-bottom: 32px;
+  // margin-bottom: 32px;
 
   @include mixins.respond-to('tablet') {
-    padding-bottom: 0;
+    padding: 0 24px;
     width: 100% !important;
   }
+
+  @include mixins.respond-to('desktop') {
+    padding: 0 32px;
+    // width: 100% !important;
+    }
 
   &__wrapper {
     @include mixins.flex-space-between;
@@ -106,7 +111,6 @@
         // padding-bottom: 24px !important;
       }
     }
-  }
 
   // Контейнер ячейки (БЭМ-элемент)
   &__cell {
@@ -150,6 +154,7 @@
     //     display: none;
     // }
   }
+}
 }
 
 // /* Главный контейнер должен быть родителем для абсолютного позиционирования */
